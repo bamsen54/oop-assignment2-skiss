@@ -29,7 +29,7 @@ public class EditMemberMenu {
             print( "nytt namn: " );
             newName = readln();
 
-            print( "ny medlemsnivå: " );
+            print( "ny medlemsnivå (student, standard eller premium): " );
             newLevel = Level.valueOf( readln().toUpperCase() );
 
             member.setName( newName );

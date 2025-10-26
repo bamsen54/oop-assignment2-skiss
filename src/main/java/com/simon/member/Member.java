@@ -44,9 +44,10 @@ public class Member {
 
     public String toString() {
 
-        // todo handle if this.level is null
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append( this.id ).append( '|' ).append(  this.name ).append( '|' ).append( this.level.toString() ).append( '|' );
+        stringBuilder.append( "|"  ).append( this.id ).append( "|" ).append(  this.name ).
+                      append( "|" ).append( this.level.toString() ).append( "|" );
+
         return stringBuilder.toString();
     }
 }

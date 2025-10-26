@@ -9,6 +9,10 @@ import com.simon.Level;
 import com.simon.menu.AddNewMemberMenu;
 import com.simon.menu.EditMemberMenu;
 import com.simon.menu.MainMenu;
+import com.simon.menu.SearchMemberMenu;
+import com.simon.regex.Regex;
+
+import java.util.regex.Pattern;
 
 
 public class Main {
@@ -19,9 +23,14 @@ public class Main {
     private static MainMenu mainMenu                 = new MainMenu();
     private static AddNewMemberMenu addNewMemberMenu = new AddNewMemberMenu();
     private static EditMemberMenu editMemberMenu     = new EditMemberMenu();
+    private static SearchMemberMenu searchMemberMenu = new SearchMemberMenu();
 
     void main() {
         memberRegistry.addMember( new Member(0, "simon", Level.STUDENT ) );
+        memberRegistry.addMember( new Member(1, "sara",  Level.STANDARD ) );
+        memberRegistry.addMember( new Member(2, "dennis",  Level.PREMIUM ) );
+        memberRegistry.addMember( new Member(3, "zorro",  Level.PREMIUM ) );
+
         run();
     }
 
@@ -38,7 +47,7 @@ public class Main {
             switch (userChoice) {
                 case 1 -> { addNewMemberMenu.addNewMember( memberRegistry );  }
                 case 2 -> { editMemberMenu.editMember( memberRegistry );  }
-                case 3 -> { /*search for members   */  }
+                case 3 -> { searchMemberMenu.searchMember( memberRegistry );  }
                 case 4 -> { /* Book rental */ }
                 case 5 -> { /* end rental */  }
                 case 6 -> { /* list items */  }

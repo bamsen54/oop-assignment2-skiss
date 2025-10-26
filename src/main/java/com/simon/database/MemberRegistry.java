@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MemberRegistry {
 
-    private Map<Integer, Member> members = new HashMap<>();
+    private final Map<Integer, Member> members = new HashMap<>();
 
     public MemberRegistry() {
     }
@@ -28,7 +28,8 @@ public class MemberRegistry {
         return this.members.get( id );
     }
 
-//    public void editMember(int id, Member member) {
-//        this.members.put( id, member );
-//    }
+    public HashMap<Integer, Member> getMembers() {
+
+        return (HashMap<Integer, Member>) this.members;
+    }
 }

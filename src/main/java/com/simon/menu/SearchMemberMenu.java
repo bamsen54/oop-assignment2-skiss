@@ -18,18 +18,15 @@ public class SearchMemberMenu {
             println("2. regex find name ");
             println("3. regex match name ");
             println("4. medlemsnivå ");
-            print("välj : ");
-            choice = Integer.parseInt(readln());
+            print( "välj : ");
+            choice = Integer.parseInt( readln() );
 
             switch (choice) {
-
                 case 1 -> searchById( memberRegistry );
                 case 2 -> searchByRegexName( memberRegistry, "find" );
                 case 3 -> searchByRegexName( memberRegistry, "match" );
                 case 4 -> searchByLevel( memberRegistry );
-
-                default -> {
-                }
+                default -> { }
             }
         }
 
@@ -71,12 +68,19 @@ public class SearchMemberMenu {
             for ( Integer key : memberRegistry.getMembers().keySet() ) {
                 final Member member = memberRegistry.getMembers().get( key );
 
-                if (regexType.equalsIgnoreCase("find")) {
-                    if (regex.isFound(member.getName(), pattern))
-                        println(member);
-                } else if (regexType.equalsIgnoreCase("match")) {
-                    if (regex.isMatch(member.getName(), pattern))
-                        println(member);
+//                if ( regexType.equalsIgnoreCase( "find" ) ) {
+//                    if (regex.isFound(member.getName(), pattern))
+//                        println(member);
+//                }
+//
+//                else if (regexType.equalsIgnoreCase( "match" ) ) {
+//                    if (regex.isMatch(member.getName(), pattern))
+//                        println(member);
+//                }
+
+                switch( regexType ) {
+                    case "find" ->   { if ( regex.isFound( member.getName(), pattern)) println(member); }
+                    case "match" ->  { if ( regex.isMatch( member.getName(), pattern) ) println( member ); }
                 }
             }
         }

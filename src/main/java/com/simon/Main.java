@@ -14,7 +14,6 @@ import com.simon.regex.Regex;
 
 import java.util.regex.Pattern;
 
-
 public class Main {
 
     private static MemberRegistry memberRegistry = new MemberRegistry();
@@ -26,10 +25,10 @@ public class Main {
     private static SearchMemberMenu searchMemberMenu = new SearchMemberMenu();
 
     void main() {
-        memberRegistry.addMember( new Member(0, "simon", Level.STUDENT ) );
-        memberRegistry.addMember( new Member(1, "sara",  Level.STANDARD ) );
-        memberRegistry.addMember( new Member(2, "dennis",  Level.PREMIUM ) );
-        memberRegistry.addMember( new Member(3, "zorro",  Level.PREMIUM ) );
+        memberRegistry.addMember( new Member( 0, "simon",  Level.STUDENT ) );
+        memberRegistry.addMember( new Member( 1, "sara",   Level.STANDARD ) );
+        memberRegistry.addMember( new Member( 2, "dennis", Level.PREMIUM ) );
+        memberRegistry.addMember( new Member( 3, "zorro",  Level.PREMIUM ) );
 
         run();
     }
@@ -45,9 +44,9 @@ public class Main {
                 continue;
 
             switch (userChoice) {
-                case 1 -> { addNewMemberMenu.addNewMember( memberRegistry );  }
-                case 2 -> { editMemberMenu.editMember( memberRegistry );  }
-                case 3 -> { searchMemberMenu.searchMember( memberRegistry );  }
+                case 1 -> addNewMemberMenu.addNewMember( memberRegistry );
+                case 2 -> editMemberMenu.editMember( memberRegistry );
+                case 3 -> searchMemberMenu.searchMember( memberRegistry );
                 case 4 -> { /* Book rental */ }
                 case 5 -> { /* end rental */  }
                 case 6 -> { /* list items */  }

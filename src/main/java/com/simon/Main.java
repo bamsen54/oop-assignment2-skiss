@@ -1,5 +1,7 @@
 package com.simon;
 
+import static java.lang.IO.println;
+
 import com.simon.database.Inventory;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
@@ -8,7 +10,6 @@ import com.simon.menu.AddNewMemberMenu;
 import com.simon.menu.EditMemberMenu;
 import com.simon.menu.MainMenu;
 
-import static java.lang.IO.println;
 
 public class Main {
 
@@ -41,7 +42,9 @@ public class Main {
                 case 4 -> { /* Book rental */ }
                 case 5 -> { /* end rental */  }
                 case 6 -> { /* list items */  }
-                case 8 -> System.exit( 1 );
+                case 7 -> { }
+                case 9 -> {  }
+                case 10 -> System.exit( 1 );
             }
         }
     }

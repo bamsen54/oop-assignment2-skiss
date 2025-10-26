@@ -1,8 +1,12 @@
 package com.simon.policy;
 
-import java.security.Policy;
+import com.simon.policy.PricePolicy;
 
 public class PremiumPolicy implements PricePolicy {
+
+    private final double changeRate = 0.75;
+    private final double monthlyFee = 200;
+
     @Override
     public String getPolicyName() {
         return "";
@@ -14,7 +18,7 @@ public class PremiumPolicy implements PricePolicy {
     }
 
     @Override
-    public double getEntryFee() {
+    public double getMonthlyFee() {
         return 0;
     }
 }

@@ -25,7 +25,7 @@ public class EditMemberMenu {
             if( member == null )
                 throw new NullPointerException( "" );
 
-            println( "medlemmens-information är nu nu " + member );
+            println( "medlemmens-information är just nu: " + member );
             print( "nytt namn: " );
             newName = readln();
 

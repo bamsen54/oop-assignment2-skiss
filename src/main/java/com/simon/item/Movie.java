@@ -35,11 +35,12 @@ public class Movie extends Item {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append( "id:       " ).append( this.getId() ).append( "\n" );
-        stringBuilder.append( "title:    " ).append( this.getTitle() ).append( "\n" );
-        stringBuilder.append( "category: " ).append( this.getCategory() ).append( "\n" );
-        stringBuilder.append( "runtime:  " ).append( this.getRuntime() ).append( "\n" );
-        stringBuilder.append( "format:   " ).append( this.getFormat() ).append( "\n" );
+        stringBuilder.append( "|" );
+        stringBuilder.append( this.getId() ).append( "|" );
+        stringBuilder.append( this.getTitle() ).append( "|" );
+        stringBuilder.append( this.getCategory() ).append( "|" );
+        stringBuilder.append( this.getRuntime() ).append( "|" );
+        stringBuilder.append( this.getFormat() );
 
         return stringBuilder.toString();
     }

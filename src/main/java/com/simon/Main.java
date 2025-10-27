@@ -9,10 +9,8 @@ import com.simon.item.Item;
 import com.simon.item.Movie;
 import com.simon.item.VideoGame;
 import com.simon.member.Member;
-import com.simon.menu.AddNewMemberMenu;
-import com.simon.menu.EditMemberMenu;
-import com.simon.menu.MainMenu;
-import com.simon.menu.SearchMemberMenu;
+import com.simon.menu.*;
+import com.simon.rental.Rental;
 
 public class Main {
 
@@ -29,6 +27,13 @@ public class Main {
         memberRegistry.addMember( new Member( 3, "billy",  Level.PREMIUM ) );
 
         run();
+
+        Member simon = memberRegistry.getMember( 0 );
+
+        println( simon.getCurrentRentals().size() );
+        for( Rental e: simon.getCurrentRentals() )
+            println( e);
+
     }
 
     public static void run() {
@@ -45,12 +50,15 @@ public class Main {
                 case 1 -> AddNewMemberMenu.addNewMember( memberRegistry );
                 case 2 -> EditMemberMenu.editMember( memberRegistry );
                 case 3 -> SearchMemberMenu.searchMember( memberRegistry );
-                case 4 -> { /* Book rental */ }
+                case 4 -> BookRentalMenu.bookRental( memberRegistry, inventory );
                 case 5 -> { /* end rental */  }
                 case 6 -> { /* list items */  }
                 case 7 -> { }
                 case 9 -> {  }
-                case 10 -> System.exit( 1 );
+                //case 10 -> System.exit( 1 );
+                case 10 -> {
+                    return;
+                }
             }
         }
     }

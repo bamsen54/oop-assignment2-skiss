@@ -11,7 +11,7 @@ public class Member {
     private int id;
     private String name;
     private Level level;
-    private List<Rental> currentRentals;
+    private List<Rental> currentRentals = new ArrayList<>();
     private List<Rental> rentalHistory = new ArrayList<>();
 
     public Member() {

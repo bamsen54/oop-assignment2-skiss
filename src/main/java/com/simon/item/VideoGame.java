@@ -34,11 +34,12 @@ public class VideoGame extends Item{
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append( "id:         " ).append( this.getId() ).append( "\n" );
-        stringBuilder.append( "title:      " ).append( this.getTitle() ).append( "\n" );
-        stringBuilder.append( "category:   " ).append( this.getCategory() ).append( "\n" );
-        stringBuilder.append( "platform:   " ).append( this.getPlatform() ).append( "\n" );
-        stringBuilder.append( "age rating: " ).append( this.getPEGIRating() ).append( "\n" );
+        stringBuilder.append( "|" );
+        stringBuilder.append( this.getId() ).append( "|" );
+        stringBuilder.append( this.getTitle() ).append( "|" );
+        stringBuilder.append( this.getCategory() ).append( "|" );
+        stringBuilder.append( this.getPlatform() ).append( "|" );
+        stringBuilder.append( this.getPEGIRating() ).append( "|" );
 
         return stringBuilder.toString();
     }

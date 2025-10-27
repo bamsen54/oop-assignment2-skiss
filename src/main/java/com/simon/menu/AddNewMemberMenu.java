@@ -8,12 +8,12 @@ import static java.lang.IO.*;
 
 public class AddNewMemberMenu {
 
-    int id = - 1;
-    String name;
-    Level  level;
-    Member member = new Member();
+    public static void addNewMember(MemberRegistry memberRegistry) {
 
-    public void addNewMember(MemberRegistry memberRegistry) {
+        int id = - 1;
+        String name;
+        Level  level;
+        Member member = new Member();
 
         try {
             println( "\nLÄGG TILL NY MEDLEM: " );

@@ -11,6 +11,7 @@ public class Member {
     private int id;
     private String name;
     private Level level;
+    private List<Rental> currentRentals;
     private List<Rental> rentalHistory = new ArrayList<>();
 
     public Member() {
@@ -40,6 +41,18 @@ public class Member {
 
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    public List<Rental> getCurrentRentals() {
+        return currentRentals;
+    }
+
+    public List<Rental> getRentalHistory() {
+        return rentalHistory;
+    }
+
+    public void addToCurrentRentals( Rental rental  ) {
+        this.currentRentals.add( rental );
     }
 
     public String toString() {

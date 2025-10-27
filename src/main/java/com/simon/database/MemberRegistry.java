@@ -29,7 +29,6 @@ public class MemberRegistry {
     }
 
     public HashMap<Integer, Member> getMembers() {
-
         return (HashMap<Integer, Member>) this.members;
     }
 }

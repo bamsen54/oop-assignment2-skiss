@@ -9,7 +9,7 @@ import com.simon.regex.Regex;
 
 public class SearchMemberMenu {
 
-    public void searchMember(MemberRegistry memberRegistry) {
+    public static void searchMember(MemberRegistry memberRegistry) {
 
         try {
             final int choice;
@@ -35,7 +35,7 @@ public class SearchMemberMenu {
         }
     }
 
-    public void searchById( MemberRegistry memberRegistry ) {
+    public static void searchById(MemberRegistry memberRegistry) {
 
         final int id;
         print( "välj id att söka på: " );
@@ -56,7 +56,7 @@ public class SearchMemberMenu {
         }
     }
 
-    public void  searchByRegexName( MemberRegistry memberRegistry, String regexType ) {
+    public static void  searchByRegexName(MemberRegistry memberRegistry, String regexType) {
 
         Regex regex = new Regex();
 
@@ -68,31 +68,20 @@ public class SearchMemberMenu {
             for ( Integer key : memberRegistry.getMembers().keySet() ) {
                 final Member member = memberRegistry.getMembers().get( key );
 
-//                if ( regexType.equalsIgnoreCase( "find" ) ) {
-//                    if (regex.isFound(member.getName(), pattern))
-//                        println(member);
-//                }
-//
-//                else if (regexType.equalsIgnoreCase( "match" ) ) {
-//                    if (regex.isMatch(member.getName(), pattern))
-//                        println(member);
-//                }
-
                 switch( regexType ) {
-                    case "find" ->   { if ( regex.isFound( member.getName(), pattern)) println(member); }
+                    case "find"  ->  { if ( regex.isFound( member.getName(), pattern) ) println( member ); }
                     case "match" ->  { if ( regex.isMatch( member.getName(), pattern) ) println( member ); }
                 }
             }
         }
 
         catch ( RuntimeException e ) {
-
         }
 
         println("");
     }
 
-    public void searchByLevel( MemberRegistry memberRegistry ) {
+    public static void searchByLevel(MemberRegistry memberRegistry) {
 
         try {
             Level level;

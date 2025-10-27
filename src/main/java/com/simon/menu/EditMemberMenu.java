@@ -8,7 +8,7 @@ import com.simon.member.Member;
 
 public class EditMemberMenu {
 
-    public void editMember(MemberRegistry memberRegistry) {
+    public static void editMember(MemberRegistry memberRegistry) {
 
         final Member member;
         final String newName;

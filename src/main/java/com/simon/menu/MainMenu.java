@@ -8,9 +8,7 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    private Scanner scanner = new Scanner( System.in );
-
-    public void display() {
+    public static void display() {
 
         println( "1.  Lägg til ny medlem" );
         println( "2.  Redigera befintlig medlem" );
@@ -25,7 +23,7 @@ public class MainMenu {
     }
 
     // user chooses in the main menu and
-    public Integer getUserChoice() {
+    public static Integer getUserChoice() {
 
         Integer userChoice = null;
 

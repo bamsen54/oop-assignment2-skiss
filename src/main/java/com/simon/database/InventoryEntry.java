@@ -35,9 +35,8 @@ public class InventoryEntry {
     public String toString() {
 
         StringBuilder stringBuilder = new StringBuilder();
-
         stringBuilder.append( this.item.toString() );
-        stringBuilder.append( "quantity in store: " ).append( this.quantityInStore );
+        stringBuilder.append( " antal i lager: " ).append( this.quantityInStore );
 
         return  stringBuilder.toString();
     }

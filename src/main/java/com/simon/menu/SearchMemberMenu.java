@@ -47,7 +47,7 @@ public class SearchMemberMenu {
             final Member member = memberRegistry.getMember(id);
 
             if( member != null )
-                println( "medlem som har id = " + id + " är " + member + "\n" );
+                print( "medlem som har id = " + id + " är " + member + "\n" );
 
             else
                 println( "medlem med det id:et finns inte" + "\n" );
@@ -71,8 +71,8 @@ public class SearchMemberMenu {
                 final Member member = memberRegistry.getMembers().get( key );
 
                 switch( regexType ) {
-                    case "find"  ->  { if ( regex.isFound( member.getName(), pattern) ) println( member ); }
-                    case "match" ->  { if ( regex.isMatch( member.getName(), pattern) ) println( member ); }
+                    case "find"  ->  { if ( regex.isFound( member.getName(), pattern) ) print( member ); }
+                    case "match" ->  { if ( regex.isMatch( member.getName(), pattern) ) print( member ); }
                 }
             }
         }
@@ -92,7 +92,7 @@ public class SearchMemberMenu {
 
             for( Integer key : memberRegistry.getMembers().keySet() ) {
                 if( memberRegistry.getMembers().get( key ).getLevel().equals( level ) )
-                    println( memberRegistry.getMembers().get( key ) ) ;
+                    print( memberRegistry.getMembers().get( key ) ) ;
             }
         }
 

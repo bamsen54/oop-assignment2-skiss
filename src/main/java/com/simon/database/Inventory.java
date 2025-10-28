@@ -12,6 +12,9 @@ public class Inventory {
 
     private HashMap<Integer, InventoryEntry> inventory = new HashMap<>();
 
+    public Inventory() {
+    }
+
     public void loadFromDatabase( ) {
 
         Item skyrim    = new VideoGame(0, "Skyrim", "video game", "pc", "PEGI18"  );

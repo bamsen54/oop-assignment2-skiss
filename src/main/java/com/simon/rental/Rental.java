@@ -12,7 +12,7 @@ public class Rental {
     public Rental() {
     }
 
-    public Rental(Member member, Item item, String duration ) {
+    public Rental(Member member, Item item, String duration) {
         this.member = member;
         this.item = item;
         this.duration = duration;

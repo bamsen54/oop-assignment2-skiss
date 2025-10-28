@@ -12,6 +12,8 @@ import com.simon.member.Member;
 import com.simon.menu.*;
 import com.simon.rental.Rental;
 
+import java.util.PrimitiveIterator;
+
 public class Main {
 
     private static final MemberRegistry memberRegistry = new MemberRegistry();
@@ -20,17 +22,10 @@ public class Main {
     void main() {
 
         inventory.loadFromDatabase();
-
-        memberRegistry.addMember( new Member( 0, "simon",  Level.STUDENT ) );
-        memberRegistry.addMember( new Member( 1, "simona",   Level.STANDARD ) );
-        memberRegistry.addMember( new Member( 2, "dennis", Level.PREMIUM ) );
-        memberRegistry.addMember( new Member( 3, "billy",  Level.PREMIUM ) );
+        memberRegistry.loadFromDatabase();
+        memberRegistry.loadRentalsFromDatabase( inventory );
 
         run();
-
-        for( Integer id: inventory.getInventory().keySet() )
-            println( inventory.getInventory().get( id ) );
-
     }
 
     public static void run() {
@@ -48,8 +43,8 @@ public class Main {
                 case 2 -> EditMemberMenu.editMember( memberRegistry );
                 case 3 -> SearchMemberMenu.searchMember( memberRegistry );
                 case 4 -> BookRentalMenu.bookRental( memberRegistry, inventory );
-                case 5 -> { EndRentalMenu.endRental( memberRegistry, inventory ); }
-                case 6 -> { /* list items */  }
+                case 5 -> EndRentalMenu.endRental( memberRegistry, inventory );
+                case 6 -> PrintInventory.print(  inventory );
                 case 7 -> { }
                 case 9 -> {  }
                 //case 10 -> System.exit( 1 );

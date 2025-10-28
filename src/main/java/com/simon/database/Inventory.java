@@ -20,7 +20,7 @@ public class Inventory {
         Item theMatrix = new Movie( 2, "The Matrix", "movie", "dvd", "136" );
         Item Titanic   = new Movie( 3, "Titanic", "movie", "bluray", "194" );
 
-        inventory.put( skyrim.getId(), new InventoryEntry( skyrim, 2 ) );
+        inventory.put( skyrim.getId(), new InventoryEntry( skyrim, 1 ) );
         inventory.put( minecraft.getId(), new InventoryEntry( minecraft, 4 ) );
 
         inventory.put( theMatrix.getId(), new InventoryEntry( theMatrix, 3 ) );

@@ -15,8 +15,8 @@ public class SearchMemberMenu {
             final int choice;
             println("\nVälj söksätt: ");
             println("1. id");
-            println("2. regex find name ");
-            println("3. regex match name ");
+            println("2. regex find namn ");
+            println("3. regex match namn ");
             println("4. medlemsnivå ");
             print( "välj : ");
             choice = Integer.parseInt( readln() );
@@ -42,6 +42,8 @@ public class SearchMemberMenu {
 
         try {
             id = Integer.parseInt(readln());
+
+
             final Member member = memberRegistry.getMember(id);
 
             if( member != null )

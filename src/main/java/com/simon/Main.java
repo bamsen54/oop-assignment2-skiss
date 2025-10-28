@@ -28,11 +28,8 @@ public class Main {
 
         run();
 
-        Member simon = memberRegistry.getMember( 0 );
-
-        println( simon.getCurrentRentals().size() );
-        for( Rental e: simon.getCurrentRentals() )
-            println( e);
+        for( Integer id: inventory.getInventory().keySet() )
+            println( inventory.getInventory().get( id ) );
 
     }
 
@@ -51,7 +48,7 @@ public class Main {
                 case 2 -> EditMemberMenu.editMember( memberRegistry );
                 case 3 -> SearchMemberMenu.searchMember( memberRegistry );
                 case 4 -> BookRentalMenu.bookRental( memberRegistry, inventory );
-                case 5 -> { /* end rental */  }
+                case 5 -> { EndRentalMenu.endRental( memberRegistry, inventory ); }
                 case 6 -> { /* list items */  }
                 case 7 -> { }
                 case 9 -> {  }

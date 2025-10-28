@@ -61,6 +61,10 @@ public class Member {
         stringBuilder.append( "|"  ).append( this.id ).append( "|" ).append(  this.name ).
                       append( "|" ).append( this.level.toString() ).append( "|" );
 
+        stringBuilder.append( "\nHyr just nu:\n" );
+        for( final Rental rental : this.currentRentals )
+            stringBuilder.append( rental );
+
         return stringBuilder.toString();
     }
 }

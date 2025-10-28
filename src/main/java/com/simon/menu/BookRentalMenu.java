@@ -22,32 +22,36 @@ public class BookRentalMenu {
         try {
 
             println( "skriv in id för medlem och id för det du ska hyra och hur länge (dygn): ");
-            memberID    = Integer.parseInt( readln() );
+            print( "medlem id: " );
+            memberID = Integer.parseInt( readln() );
+            member   = memberRegistry.getMember( memberID );
+            println( member.getId() + "|" +  member.getName() + "|" + member.getLevel() );
+
+            print( "artikel id: " );
             inventoryID = Integer.parseInt( readln() );
+            inventoryEntry = inventory.getInventory().get( inventoryID );
+            println( inventoryEntry );
+
+            print( "antal dagar: " );
             days        = Integer.parseInt( readln() );
 
+
             if( memberID < 0 || inventoryID < 0 || days < 0 ) {
-                println( " endast icke-negativa heltal ");
+                println( "endast icke-negativa heltal" );
                 return;
             }
-
-            member         = memberRegistry.getMember( memberID );
-            inventoryEntry = inventory.getInventory().get( inventoryID );
-
-            println( member );
-            println( inventoryEntry );
 
             if( member == null || inventoryEntry == null )
                 throw new NullPointerException();
 
             if( inventoryEntry.getQuantityInStore() < 1 ) {
-                println( " alla är uthyrda\n" );
+                println( "alla av den artikeln är uthyrda\n" );
                 return;
             }
 
             Rental rental = new Rental( member, inventoryEntry.getItem(), String.valueOf( days ) );
 
-            println( rental );
+            println( rental + "\n" );
 
             member.addToCurrentRentals( rental );
             member.getRentalHistory().add( rental );
@@ -56,7 +60,7 @@ public class BookRentalMenu {
         }
 
         catch ( NumberFormatException e ) {
-            println( " all input ska vara icke negativa heltal " );
+            println( "alla invärden ska vara icke negativa heltal " );
         }
 
         catch ( NullPointerException e ) {

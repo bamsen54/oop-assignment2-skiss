@@ -46,7 +46,7 @@ public class Rental {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append( this.member ).append( " hyr " ).
+        stringBuilder.append( this.member.getName() ).append( " hyr " ).
                       append( this.item ).append( " i " ).append( this.duration ).append( " dagar " );
 
         return stringBuilder.toString();

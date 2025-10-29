@@ -17,17 +17,20 @@ public class Inventory {
 
     public void loadFromDatabase( ) {
 
-        Item skyrim    = new VideoGame(0, "Skyrim", "video game", "pc", "PEGI18"  );
-        Item minecraft = new VideoGame(1, "minecraft", "video game", "x-box", "PEGI7"  );
+        Item skyrim    = new VideoGame(0, "Skyrim", "tv-spel", "pc", "PEGI18"  );
+        Item minecraft = new VideoGame(1, "Minecraft", "tv-spel", "x-box", "PEGI7"  );
+        Item eldenring = new VideoGame( 2, "Elden Ring", "tv-spel", "pc", "PEGI17+" );
 
-        Item theMatrix = new Movie( 2, "The Matrix", "movie", "dvd", "136" );
-        Item Titanic   = new Movie( 3, "Titanic", "movie", "bluray", "194" );
+        Item theMatrix = new Movie( 5, "The Matrix", "film", "dvd", "136" );
+        Item Titanic   = new Movie( 9, "Titanic", "film", "bluray", "194" );
 
         inventory.put( skyrim.getId(), new InventoryEntry( skyrim, 1 ) );
         inventory.put( minecraft.getId(), new InventoryEntry( minecraft, 4 ) );
+        inventory.put( eldenring.getId(), new InventoryEntry( eldenring, 3 ) );
 
         inventory.put( theMatrix.getId(), new InventoryEntry( theMatrix, 3 ) );
         inventory.put( Titanic.getId(), new InventoryEntry( Titanic, 1 ) );
+
     }
 
     public HashMap<Integer, InventoryEntry> getInventory() {

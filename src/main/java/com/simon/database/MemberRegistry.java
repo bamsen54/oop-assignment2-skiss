@@ -16,19 +16,18 @@ public class MemberRegistry {
     }
 
     public void  loadFromDatabase() {
-        this.addMember( new Member( 0, "simon",  Level.STUDENT ) );
+        this.addMember( new Member( 0, "simon",    Level.STUDENT ) );
         this.addMember( new Member( 1, "simona",   Level.STANDARD ) );
         this.addMember( new Member( 2, "korina",   Level.STANDARD ) );
-        this.addMember( new Member( 2, "sara",   Level.STANDARD ) );
-        this.addMember( new Member( 2, "dennis", Level.PREMIUM ) );
-        this.addMember( new Member( 3, "billy",  Level.PREMIUM ) );
+        this.addMember( new Member( 3, "sara",     Level.STANDARD ) );
+        this.addMember( new Member( 4, "dennis",   Level.PREMIUM ) );
+        this.addMember( new Member( 5, "billy",    Level.PREMIUM ) );
+        this.addMember( new Member( 6, "kristina", Level.PREMIUM ) );
+
     }
 
     public void loadRentalsFromDatabase( Inventory inventory ) {
 
-        HashMap<Integer, InventoryEntry> ie = inventory.getInventory();
-        this.members.get( 0 ).addToCurrentRentals( new Rental( this.members.get( 0 ), ie.get( 0 ).getItem(), "7" ) );
-        this.members.get( 0 ).addToCurrentRentals( new Rental( this.members.get( 0 ), ie.get( 2 ).getItem(), "2" ) );
     }
 
     public boolean hasMemberId( int memberId ) {

@@ -5,6 +5,9 @@ import com.simon.database.InventoryEntry;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.rental.Rental;
+import com.simon.service.MembershipService;
+import com.simon.service.RentalService;
+
 import java.util.List;
 
 import static java.lang.IO.*;
@@ -12,7 +15,7 @@ import static java.lang.IO.println;
 
 public class EndRentalMenu {
 
-    public static void endRental(MemberRegistry memberRegistry, Inventory inventory ) {
+    public static void endRental(RentalService rentalService, MembershipService membershipService, Inventory inventory ) {
 
         Integer memberID    = null;
         Integer inventoryID = null;
@@ -20,13 +23,12 @@ public class EndRentalMenu {
         final Member member;
         final InventoryEntry inventoryEntry;
 
-
         try {
 
-            println( "skriv in id för medlem och id för det du ska hyra och hur länge (dygn): ");
+            println( "skriv in id för medlem och id för det du lämna tillbaka: ");
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );
-            member   = memberRegistry.getMember( memberID );
+            member   = membershipService.getMemberRegistry().getMember( memberID );
             println( member.getId() + "|" +  member.getName() + "|" + member.getLevel() );
 
             for( int choice = 1; choice <= member.getCurrentRentals().size(); choice++ )
@@ -42,14 +44,9 @@ public class EndRentalMenu {
                 return;
             }
 
-            List<Rental> rentals = member.getCurrentRentals();
-
-            inventoryID = rentals.get( userChoice - 1 ).getItem().getId();
-
+            inventoryID = member.getCurrentRentals().get( userChoice - 1 ).getItem().getId();
             inventoryEntry = inventory.getInventory().get( inventoryID );
-
-            inventoryEntry.setQuantityInStore( inventoryEntry.getQuantityInStore() + 1 );
-            rentals.remove( userChoice - 1 );
+            rentalService.handleEndRental( inventoryEntry, member,  userChoice - 1 );
         }
 
         catch( NumberFormatException e ) {

@@ -40,7 +40,7 @@ public class Movie extends Item {
         stringBuilder.append( this.getTitle() ).append( "|" );
         stringBuilder.append( this.getCategory() ).append( "|" );
         stringBuilder.append( this.getRuntime() ).append( "|" );
-        stringBuilder.append( this.getFormat() );
+        stringBuilder.append( this.getFormat() ).append( "|" );
 
         return stringBuilder.toString();
     }

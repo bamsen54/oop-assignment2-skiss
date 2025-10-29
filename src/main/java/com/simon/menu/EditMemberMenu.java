@@ -5,10 +5,11 @@ import static java.lang.IO.*;
 import com.simon.Level;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
+import com.simon.service.MembershipService;
 
 public class EditMemberMenu {
 
-    public static void editMember(MemberRegistry memberRegistry) {
+    public static void editMember(MembershipService membershipService) {
 
         final Member member;
         final String newName;
@@ -20,7 +21,7 @@ public class EditMemberMenu {
             print("id: ");
             final int id = Integer.parseInt(readln());
 
-            member = memberRegistry.getMember( id );
+            member = membershipService.getMemberRegistry().getMember( id );
 
             if( member == null )
                 throw new NullPointerException( "" );

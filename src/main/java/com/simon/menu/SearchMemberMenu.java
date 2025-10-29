@@ -6,10 +6,11 @@ import com.simon.Level;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.regex.Regex;
+import com.simon.service.MembershipService;
 
 public class SearchMemberMenu {
 
-    public static void searchMember(MemberRegistry memberRegistry) {
+    public static void searchMember(MembershipService  membershipService) {
 
         try {
             final int choice;
@@ -22,16 +23,16 @@ public class SearchMemberMenu {
             choice = Integer.parseInt( readln() );
 
             switch (choice) {
-                case 1 -> searchById( memberRegistry );
-                case 2 -> searchByRegexName( memberRegistry, "find" );
-                case 3 -> searchByRegexName( memberRegistry, "match" );
-                case 4 -> searchByLevel( memberRegistry );
+                case 1 -> searchById( membershipService.getMemberRegistry() );
+                case 2 -> searchByRegexName( membershipService.getMemberRegistry(), "find" );
+                case 3 -> searchByRegexName( membershipService.getMemberRegistry(), "match" );
+                case 4 -> searchByLevel( membershipService.getMemberRegistry() );
                 default -> { }
             }
         }
 
-        catch(NumberFormatException e) {
-            // TODO
+        catch( NumberFormatException e ) {
+            println( "input måste vara ett icke-negativt heltal\n" );
         }
     }
 

@@ -3,12 +3,13 @@ package com.simon.menu;
 import com.simon.Level;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
+import com.simon.service.MembershipService;
 
 import static java.lang.IO.*;
 
 public class AddNewMemberMenu {
 
-    public static void addNewMember(MemberRegistry memberRegistry) {
+    public static void addNewMember(MembershipService membershipService) {
 
         int id = - 1;
         String name;
@@ -40,22 +41,22 @@ public class AddNewMemberMenu {
             return;
         }
 
-        final boolean legalAndAvailableID = id >= 0 && !memberRegistry.hasMemberId( id );
+        final boolean legalAndAvailableID = id >= 0 && !membershipService.getMemberRegistry().hasMemberId( id );
         final boolean legalName           = !name.isEmpty();
-        final boolean legalLevdel         = level != null;
+        //final boolean legalLevel         = level != null;
 
         if( id < 0 )
             println( "id kan inte vara negativt" );
 
-        if( memberRegistry.hasMemberId( id ) )
+        if( membershipService.getMemberRegistry().hasMemberId( id ) )
             println( "medlem med id finns redan" );
 
         if( !legalName )
             println( "namn måste innehålla åtminstone ett tecken" );
 
-        if( legalAndAvailableID && legalName && legalLevdel ) {
+        if( legalAndAvailableID && legalName ) {
             member = new Member( id, name, level );
-            memberRegistry.addMember( member );
+            membershipService.addNewMember( member );
             println( "ny medlem: " + member + "\n" );
         }
     }

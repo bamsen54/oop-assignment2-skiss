@@ -7,10 +7,12 @@ import com.simon.database.InventoryEntry;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.rental.Rental;
+import com.simon.service.MembershipService;
+import com.simon.service.RentalService;
 
 public class BookRentalMenu {
 
-    public static void bookRental( MemberRegistry memberRegistry, Inventory inventory ) {
+    public static void bookRental(RentalService rentalService, MembershipService membershipService, Inventory inventory ) {
 
         Integer memberID    = null;
         Integer inventoryID = null;
@@ -24,7 +26,7 @@ public class BookRentalMenu {
             println( "skriv in id för medlem och id för det du ska hyra och hur länge (dygn): ");
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );
-            member   = memberRegistry.getMember( memberID );
+            member   = membershipService.getMemberRegistry().getMember( memberID );
             println( member.getId() + "|" +  member.getName() + "|" + member.getLevel() );
 
             print( "artikel id: " );
@@ -50,17 +52,12 @@ public class BookRentalMenu {
             }
 
             Rental rental = new Rental( member, inventoryEntry.getItem(), String.valueOf( days ) );
-
             println( rental + "\n" );
-
-            member.addToCurrentRentals( rental );
-            member.getRentalHistory().add( rental );
-
-            inventoryEntry.setQuantityInStore( inventoryEntry.getQuantityInStore() - 1 );
+            rentalService.handleRental( inventoryEntry, member, rental );
         }
 
         catch ( NumberFormatException e ) {
-            println( "alla invärden ska vara icke negativa heltal " );
+            println( "alla invärden ska vara icke negativa heltal\n" );
         }
 
         catch ( NullPointerException e ) {

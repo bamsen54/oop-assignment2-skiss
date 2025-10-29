@@ -3,17 +3,18 @@ package com.simon.menu;
 import com.simon.Level;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
+import com.simon.service.IncomeService;
 import com.simon.service.MembershipService;
 
 import static java.lang.IO.*;
 
 public class AddNewMemberMenu {
 
-    public static void addNewMember(MembershipService membershipService) {
+    public static void addNewMember(MembershipService membershipService, IncomeService incomeService) {
 
         int id = - 1;
-        String name;
-        Level  level;
+        String name = "";
+        Level  level = null;
         Member member = new Member();
 
         try {
@@ -26,7 +27,7 @@ public class AddNewMemberMenu {
             name = readln();
 
             print("medlemsnivå (student, standard eller premium): ");
-            level = Level.valueOf( IO.readln().toUpperCase() );
+            level = Level.valueOf( readln().toUpperCase() );
         }
 
         // handles parseInt error
@@ -40,6 +41,8 @@ public class AddNewMemberMenu {
             println( "medlemsnivå kan endast vara student, standard eller premium\n" );
             return;
         }
+
+        catch ( RuntimeException e) {}
 
         final boolean legalAndAvailableID = id >= 0 && !membershipService.getMemberRegistry().hasMemberId( id );
         final boolean legalName           = !name.isEmpty();
@@ -56,7 +59,15 @@ public class AddNewMemberMenu {
 
         if( legalAndAvailableID && legalName ) {
             member = new Member( id, name, level );
-            membershipService.addNewMember( member );
+            membershipService.addNewMember( member, incomeService );
+
+            switch ( level ) {
+
+                case Level.PREMIUM -> incomeService.addEntryFees( 100 );
+                case null -> {}
+                default -> incomeService.addEntryFees( 0 );
+            }
+
             println( "ny medlem: " + member + "\n" );
         }
     }

@@ -61,6 +61,8 @@ public class EndRentalMenu {
             println( "finns ingen sådan member\n" );
         }
 
+        catch ( RuntimeException e ) {}
+
         println( "" );
     }
 }

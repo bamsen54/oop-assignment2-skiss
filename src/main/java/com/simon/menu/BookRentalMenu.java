@@ -7,12 +7,13 @@ import com.simon.database.InventoryEntry;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.rental.Rental;
+import com.simon.service.IncomeService;
 import com.simon.service.MembershipService;
 import com.simon.service.RentalService;
 
 public class BookRentalMenu {
 
-    public static void bookRental(RentalService rentalService, MembershipService membershipService, Inventory inventory ) {
+    public static void bookRental(RentalService rentalService, MembershipService membershipService, Inventory inventory, IncomeService incomeService) {
 
         Integer memberID    = null;
         Integer inventoryID = null;
@@ -57,7 +58,7 @@ public class BookRentalMenu {
 
             Rental rental = new Rental( member, inventoryEntry.getItem(), String.valueOf( days ) );
             println( rental + "\n" );
-            rentalService.handleRental( inventoryEntry, member, rental );
+            rentalService.handleRental( inventoryEntry, member, rental, incomeService );
         }
 
         catch ( NumberFormatException e ) {
@@ -67,5 +68,7 @@ public class BookRentalMenu {
         catch ( NullPointerException e ) {
             println( e.getMessage() + "\n" );
         }
+
+        catch ( RuntimeException e ) {}
     }
 }

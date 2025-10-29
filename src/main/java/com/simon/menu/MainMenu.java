@@ -19,7 +19,8 @@ public class MainMenu {
         println( "7.  Filtrera artiklar i lagret ");
         println( "8.  Visa inkomst denna månad " );
         println( "9.  Skriv ut hyrhistoria för en medlem" );
-        println( "10. Avsluta" );
+        println( "10. Summera intäkter" );
+        println( "11. Avsluta" );
     }
 
     // user chooses in the main menu and
@@ -36,9 +37,11 @@ public class MainMenu {
             println("det du skrev in är inte ett heltal\n");
         }
 
+        catch ( RuntimeException e ) {}
+
         if( userChoice != null ) {
             if (userChoice < 1 || userChoice > 10)
-                println("det du skrev var inte mellan 1 och 10\n");
+                println("det du skrev var inte mellan 1 och 11\n");
         }
 
         return userChoice;

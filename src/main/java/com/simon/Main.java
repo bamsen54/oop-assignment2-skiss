@@ -1,26 +1,17 @@
 package com.simon;
 
-import static java.lang.IO.println;
-
 import com.simon.database.Inventory;
-import com.simon.database.InventoryEntry;
+import com.simon.service.IncomeService;
 import com.simon.service.MembershipService;
-import com.simon.item.Item;
-import com.simon.item.Movie;
-import com.simon.item.VideoGame;
-import com.simon.member.Member;
 import com.simon.menu.*;
-import com.simon.rental.Rental;
-import com.simon.service.MembershipService;
 import com.simon.service.RentalService;
-
-import java.util.PrimitiveIterator;
 
 public class Main {
 
-    private static final RentalService rentalService = new RentalService();
     private static final Inventory inventory           = new Inventory();
+    private static final RentalService rentalService   = new RentalService();
     private static MembershipService memberShipService;
+    private static final IncomeService incomeService = new IncomeService();
 
     void main() {
 
@@ -41,16 +32,16 @@ public class Main {
                 continue;
 
             switch (userChoice) {
-                case 1 -> AddNewMemberMenu.addNewMember( memberShipService );
+                case 1 -> AddNewMemberMenu.addNewMember( memberShipService, incomeService );
                 case 2 -> EditMemberMenu.editMember( memberShipService );
                 case 3 -> SearchMemberMenu.searchMember( memberShipService );
-                case 4 -> BookRentalMenu.bookRental( rentalService, memberShipService, inventory );
+                case 4 -> BookRentalMenu.bookRental( rentalService, memberShipService, inventory, incomeService );
                 case 5 -> EndRentalMenu.endRental( rentalService, memberShipService, inventory );
                 case 6 -> PrintInventory.print(  inventory );
                 case 7 ->  FilterInventory.filter( inventory );
                 case 9 -> PrintHistoryMenu.printHistory( memberShipService );
-                //case 10 -> System.exit( 1 );
-                case 10 -> {
+                case 10 -> incomeService.printIncomeSummary();
+                case 11 -> {
                     return;
                 }
             }

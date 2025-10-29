@@ -33,6 +33,8 @@ public class PrintHistoryMenu {
             println( "id måste vara icke-negativt heltal\n" );
         }
 
+        catch (RuntimeException e)  {}
+
         println("");
     }
 }

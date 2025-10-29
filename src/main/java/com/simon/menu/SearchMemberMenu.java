@@ -57,6 +57,8 @@ public class SearchMemberMenu {
         catch( NumberFormatException e ) {
             println( "id måste vara icke-negativt heltal\n" );
         }
+
+        catch (RuntimeException e)  {}
     }
 
     public static void  searchByRegexName(MemberRegistry memberRegistry, String regexType) {
@@ -78,8 +80,7 @@ public class SearchMemberMenu {
             }
         }
 
-        catch ( RuntimeException e ) {
-        }
+        catch (RuntimeException e)  {}
 
         println("");
     }
@@ -100,6 +101,8 @@ public class SearchMemberMenu {
         catch ( IllegalArgumentException e ) {
             println( "finns ingen sådan medlemsnivå\n" );
         }
+
+        catch ( RuntimeException e )  {}
 
         println("");
     }

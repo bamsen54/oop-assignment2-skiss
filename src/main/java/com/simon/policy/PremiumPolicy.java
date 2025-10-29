@@ -18,7 +18,7 @@ public class PremiumPolicy implements PricePolicy {
     }
 
     @Override
-    public double getMonthlyFee() {
-        return 0;
+    public double getEntryFee() {
+        return 100;
     }
 }

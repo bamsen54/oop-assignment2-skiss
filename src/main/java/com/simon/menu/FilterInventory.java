@@ -32,6 +32,8 @@ public class FilterInventory {
         catch(NumberFormatException e) {
             println( "alla invärden ska vara icke negativa heltal\n" );
         }
+
+        catch (RuntimeException e)  {}
     }
 
     public static void filterByID( Inventory inventory) {
@@ -58,6 +60,9 @@ public class FilterInventory {
             println( "alla invärden ska vara icke negativa heltal\n" );
         }
 
+        catch (RuntimeException e)  {}
+
+
         println("");
     }
 
@@ -81,15 +86,14 @@ public class FilterInventory {
             }
         }
 
-        catch ( RuntimeException e ) {
-        }
+        catch (RuntimeException e)  {}
 
         println("");
     }
 
     public static void searchByCategory( Inventory inventory ) {
 
-        print( "skriv in kategory du vill söka på: " );
+        print( "skriv in kategori du vill söka på: " );
         String category = readln();
 
         for( Integer key: inventory.getInventory().keySet() ) {

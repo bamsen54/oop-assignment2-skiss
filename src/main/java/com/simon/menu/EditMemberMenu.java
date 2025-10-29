@@ -49,5 +49,7 @@ public class EditMemberMenu {
         catch ( IllegalArgumentException e ) {
             println( "medlemsnivå kan endast vara student, standard eller premium\n" );
         }
+
+        catch ( RuntimeException e ) {}
     }
 }

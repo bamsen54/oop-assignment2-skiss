@@ -20,7 +20,9 @@ public class StandardPolicy implements PricePolicy {
     }
 
     @Override
-    public double getMonthlyFee() {
-        return this.monthlyFee;
+    public double getEntryFee() {
+        return 0;
     }
+
+
 }

@@ -27,7 +27,6 @@ public class Main {
         inventory.loadFromDatabase();
         memberShipService = new MembershipService( inventory );
 
-
         run();
     }
 
@@ -49,7 +48,7 @@ public class Main {
                 case 5 -> EndRentalMenu.endRental( rentalService, memberShipService, inventory );
                 case 6 -> PrintInventory.print(  inventory );
                 case 7 ->  FilterInventory.filter( inventory );
-                case 9 -> {  }
+                case 9 -> PrintHistoryMenu.printHistory( memberShipService );
                 //case 10 -> System.exit( 1 );
                 case 10 -> {
                     return;

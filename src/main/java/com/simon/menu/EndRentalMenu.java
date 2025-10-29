@@ -29,6 +29,10 @@ public class EndRentalMenu {
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );
             member   = membershipService.getMemberRegistry().getMember( memberID );
+
+            if( member == null )
+                throw new NullPointerException( "det finns ingen medlem med det id:t" );
+
             println( member.getId() + "|" +  member.getName() + "|" + member.getLevel() );
 
             for( int choice = 1; choice <= member.getCurrentRentals().size(); choice++ )

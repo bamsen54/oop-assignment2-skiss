@@ -12,7 +12,7 @@ public class Member {
     private String name;
     private Level level;
     private List<Rental> currentRentals = new ArrayList<>();
-    private List<Rental> rentalHistory = new ArrayList<>();
+    private List<HistoryEntry> rentalHistory = new ArrayList<>();
 
     public Member() {
     }
@@ -47,7 +47,7 @@ public class Member {
         return currentRentals;
     }
 
-    public List<Rental> getRentalHistory() {
+    public List<HistoryEntry> getRentalHistory() {
         return rentalHistory;
     }
 

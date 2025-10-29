@@ -3,11 +3,14 @@ package com.simon.rental;
 import com.simon.item.Item;
 import com.simon.member.Member;
 
+import java.time.LocalDateTime;
+
 public class Rental {
 
     private Member member;
     private Item item;
     private String duration;
+    private LocalDateTime timeOfRental;
 
     public Rental() {
     }
@@ -16,6 +19,7 @@ public class Rental {
         this.member = member;
         this.item = item;
         this.duration = duration;
+        timeOfRental = LocalDateTime.now();
     }
 
     public Member getMember() {
@@ -42,12 +46,17 @@ public class Rental {
         this.duration = duration;
     }
 
+    public LocalDateTime getTimeOfRental() {
+        return timeOfRental;
+    }
+
     public String toString() {
 
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append( this.member.getName() ).append( " hyr " ).
-                      append( this.item ).append( " i " ).append( this.duration ).append( " dagar " );
+                      append( this.item ).append( " i " ).append( this.duration ).append( " dagar " ).
+                      append( "tid: ").append( this.timeOfRental );
 
         return stringBuilder.toString();
     }

@@ -18,7 +18,7 @@ public class MainMenu {
         println( "6.  Skriv ut artiklar i lagret" );
         println( "7.  Filtrera artiklar i lagret ");
         println( "8.  Visa inkomst denna månad " );
-        println( "9.  Skippa tiden till början av nästa månad" );
+        println( "9.  Skriv ut hyrhistoria för en medlem" );
         println( "10. Avsluta" );
     }
 

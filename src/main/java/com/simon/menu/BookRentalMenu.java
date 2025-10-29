@@ -27,11 +27,18 @@ public class BookRentalMenu {
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );
             member   = membershipService.getMemberRegistry().getMember( memberID );
+
+            if( member == null )
+                throw new NullPointerException( "det finns ingen medlem med det id:t" );
             println( member.getId() + "|" +  member.getName() + "|" + member.getLevel() );
 
             print( "artikel id: " );
             inventoryID = Integer.parseInt( readln() );
             inventoryEntry = inventory.getInventory().get( inventoryID );
+
+            if( inventoryEntry == null )
+                throw new NullPointerException( "det finns ingenting i förådet med det id:t" );
+
             println( inventoryEntry );
 
             print( "antal dagar: " );
@@ -42,9 +49,6 @@ public class BookRentalMenu {
                 println( "endast icke-negativa heltal" );
                 return;
             }
-
-            if( member == null || inventoryEntry == null )
-                throw new NullPointerException();
 
             if( inventoryEntry.getQuantityInStore() < 1 ) {
                 println( "alla av den artikeln är uthyrda\n" );
@@ -61,7 +65,7 @@ public class BookRentalMenu {
         }
 
         catch ( NullPointerException e ) {
-            println( "antingen finns inte någon medlem med det id:t eller finns ingen sak med det id:t i förådet\n" );
+            println( e.getMessage() + "\n" );
         }
     }
 }

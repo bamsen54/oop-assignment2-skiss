@@ -1,12 +1,11 @@
 package com.simon.menu;
 
+import static java.lang.IO.*;
+
 import com.simon.Level;
-import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.service.IncomeService;
 import com.simon.service.MembershipService;
-
-import static java.lang.IO.*;
 
 public class AddNewMemberMenu {
 
@@ -52,7 +51,7 @@ public class AddNewMemberMenu {
             println( "id kan inte vara negativt" );
 
         if( membershipService.getMemberRegistry().hasMemberId( id ) )
-            println( "medlem med id finns redan" );
+            println( "medlem med det id:t finns redan\n" );
 
         if( !legalName )
             println( "namn måste innehålla åtminstone ett tecken" );
@@ -68,7 +67,7 @@ public class AddNewMemberMenu {
                 default -> incomeService.addEntryFees( 0 );
             }
 
-            println( "ny medlem: " + member + "\n" );
+            println( "ny medlem: " + member );
         }
     }
 }

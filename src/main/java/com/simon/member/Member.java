@@ -63,7 +63,7 @@ public class Member {
 
         stringBuilder.append( "\nHyr just nu:\n" );
         for( final Rental rental : this.currentRentals )
-            stringBuilder.append( rental + "\n" );
+            stringBuilder.append( rental ).append( "\n" );
 
         return stringBuilder.toString();
     }

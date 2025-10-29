@@ -12,7 +12,8 @@ public class FilterInventory {
 
         try {
             final int choice;
-            println( "\nVälj filtreringssätt: ");
+            println( "\nFILTRERA ARTIKLAR I LAGRET" );
+            println( "Välj filtreringssätt: ");
             println( "1. id");
             println( "2. regex find titel ");
             println( "3. regex match titel ");
@@ -67,8 +68,6 @@ public class FilterInventory {
     }
 
     public static void searchByRegexTitle( Inventory inventory, String regexType ) {
-
-        Regex regex = new Regex();
 
         try {
             String pattern;

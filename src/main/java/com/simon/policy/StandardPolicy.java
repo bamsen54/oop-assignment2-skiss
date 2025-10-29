@@ -3,8 +3,6 @@ package com.simon.policy;
 public class StandardPolicy implements PricePolicy {
 
     private final double changeRate = 1.0;
-    private final double monthlyFee = 0;
-
 
     public StandardPolicy() {
     }
@@ -23,6 +21,4 @@ public class StandardPolicy implements PricePolicy {
     public double getEntryFee() {
         return 0;
     }
-
-
 }

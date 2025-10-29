@@ -1,11 +1,10 @@
 package com.simon.menu;
 
+import static java.lang.IO.*;
+
 import com.simon.member.HistoryEntry;
 import com.simon.member.Member;
 import com.simon.service.MembershipService;
-
-import static java.lang.IO.*;
-import static java.lang.IO.println;
 
 public class PrintHistoryMenu {
 

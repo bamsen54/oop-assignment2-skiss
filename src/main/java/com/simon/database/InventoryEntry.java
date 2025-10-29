@@ -1,7 +1,6 @@
 package com.simon.database;
 
 import com.simon.item.Item;
-import com.simon.rental.Rental;
 
 public class InventoryEntry {
 

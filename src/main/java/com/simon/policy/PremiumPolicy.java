@@ -1,7 +1,5 @@
 package com.simon.policy;
 
-import com.simon.policy.PricePolicy;
-
 public class PremiumPolicy implements PricePolicy {
 
     private final double changeRate = 0.75;

@@ -1,8 +1,8 @@
 package com.simon.member;
 
-import com.simon.item.Item;
-
 import java.time.LocalDateTime;
+
+import com.simon.item.Item;
 
 public class HistoryEntry {
 
@@ -45,10 +45,9 @@ public class HistoryEntry {
 
     @Override
     public String toString() {
-        return "HistoryEntry{" +
-                "item=" + item +
-                ", rentalDate=" + rentalDate +
-                ", returnDate=" + returnDate +
-                '}';
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append( this.item ).append( " hyrning: " ).append( this.rentalDate ).append( " återlämning: " ).append( this.returnDate );
+        return stringBuilder.toString();
     }
 }

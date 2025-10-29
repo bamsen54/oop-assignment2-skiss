@@ -14,7 +14,7 @@ public class MembershipService {
 
     public MembershipService(Inventory inventory) {
         memberRegistry.loadFromDatabase();
-        memberRegistry.loadRentalsFromDatabase( inventory );
+        //memberRegistry.loadRentalsFromDatabase( inventory );
     }
 
     public MemberRegistry getMemberRegistry() {

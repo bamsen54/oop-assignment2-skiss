@@ -1,9 +1,9 @@
 package com.simon.rental;
 
+import java.time.LocalDateTime;
+
 import com.simon.item.Item;
 import com.simon.member.Member;
-
-import java.time.LocalDateTime;
 
 public class Rental {
 

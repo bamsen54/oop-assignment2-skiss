@@ -4,7 +4,6 @@ import static java.lang.IO.*;
 
 import com.simon.database.Inventory;
 import com.simon.database.InventoryEntry;
-import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.rental.Rental;
 import com.simon.service.IncomeService;
@@ -24,6 +23,7 @@ public class BookRentalMenu {
 
         try {
 
+            println( "\nBOKA HYRNING");
             println( "skriv in id för medlem och id för det du ska hyra och hur länge (dygn): ");
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );

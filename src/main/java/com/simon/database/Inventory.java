@@ -1,12 +1,10 @@
 package com.simon.database;
 
+import java.util.HashMap;
+
 import com.simon.item.Item;
 import com.simon.item.Movie;
 import com.simon.item.VideoGame;
-
-import java.util.HashMap;
-
-import static java.lang.IO.println;
 
 public class Inventory {
 

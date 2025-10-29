@@ -2,14 +2,9 @@ package com.simon.menu;
 
 import static java.lang.IO.*;
 
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class MainMenu {
 
     public static void display() {
-
         println( "1.  Lägg til ny medlem" );
         println( "2.  Redigera befintlig medlem" );
         println( "3.  Sök medlemmar " );
@@ -17,10 +12,9 @@ public class MainMenu {
         println( "5.  Avsluta hyrning" );
         println( "6.  Skriv ut artiklar i lagret" );
         println( "7.  Filtrera artiklar i lagret ");
-        println( "8.  Visa inkomst denna månad " );
-        println( "9.  Skriv ut hyrhistoria för en medlem" );
-        println( "10. Summera intäkter" );
-        println( "11. Avsluta" );
+        println( "8.  Skriv ut hyrhistoria för en medlem" );
+        println( "9.  Summera intäkter" );
+        println( "10. Avsluta" );
     }
 
     // user chooses in the main menu and

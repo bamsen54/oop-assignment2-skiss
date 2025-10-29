@@ -1,17 +1,12 @@
 package com.simon.menu;
 
+import static java.lang.IO.*;
+
 import com.simon.database.Inventory;
 import com.simon.database.InventoryEntry;
-import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
-import com.simon.rental.Rental;
 import com.simon.service.MembershipService;
 import com.simon.service.RentalService;
-
-import java.util.List;
-
-import static java.lang.IO.*;
-import static java.lang.IO.println;
 
 public class EndRentalMenu {
 
@@ -25,6 +20,7 @@ public class EndRentalMenu {
 
         try {
 
+            println( "\nAVSLUTA HYRNING" );
             println( "skriv in id för medlem och id för det du lämna tillbaka: ");
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );
@@ -34,6 +30,11 @@ public class EndRentalMenu {
                 throw new NullPointerException( "det finns ingen medlem med det id:t" );
 
             println( member.getId() + "|" +  member.getName() + "|" + member.getLevel() );
+
+            if( member.getCurrentRentals().isEmpty() ) {
+                println( "medlemmen hyr inget just nu\n" );
+                return;
+            }
 
             for( int choice = 1; choice <= member.getCurrentRentals().size(); choice++ )
                 println( choice + ". " +  member.getCurrentRentals().get( choice - 1 ) );
@@ -58,7 +59,7 @@ public class EndRentalMenu {
         }
 
         catch ( NullPointerException e ) {
-            println( "finns ingen sådan member\n" );
+            println( "finns ingen sådan medlem\n" );
         }
 
         catch ( RuntimeException e ) {}

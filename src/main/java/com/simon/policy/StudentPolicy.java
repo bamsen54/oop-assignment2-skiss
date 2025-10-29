@@ -26,5 +26,4 @@ public class StudentPolicy implements PricePolicy {
     public double getEntryFee() {
         return 0;
     }
-
 }

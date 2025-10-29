@@ -30,7 +30,6 @@ public class Movie extends Item {
         this.runtime = runtime;
     }
 
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

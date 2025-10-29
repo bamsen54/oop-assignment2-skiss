@@ -1,12 +1,10 @@
 package com.simon.database;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.simon.Level;
 import com.simon.member.Member;
-import com.simon.rental.Rental;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class MemberRegistry {
 
@@ -16,14 +14,17 @@ public class MemberRegistry {
     }
 
     public void  loadFromDatabase() {
-        this.addMember( new Member( 0, "simon",    Level.STUDENT ) );
-        this.addMember( new Member( 1, "simona",   Level.STANDARD ) );
-        this.addMember( new Member( 2, "korina",   Level.STANDARD ) );
-        this.addMember( new Member( 3, "sara",     Level.STANDARD ) );
-        this.addMember( new Member( 4, "dennis",   Level.PREMIUM ) );
-        this.addMember( new Member( 5, "billy",    Level.PREMIUM ) );
-        this.addMember( new Member( 6, "kristina", Level.PREMIUM ) );
-
+        this.addMember( new Member( 0,  "simon",    Level.STUDENT ) );
+        this.addMember( new Member( 1,  "simona",   Level.STUDENT ) );
+        this.addMember( new Member( 2,  "korina",   Level.STANDARD ) );
+        this.addMember( new Member( 3,  "sara",     Level.STANDARD ) );
+        this.addMember( new Member( 4,  "dennis",   Level.STANDARD ) );
+        this.addMember( new Member( 5,  "billy",    Level.STANDARD ) );
+        this.addMember( new Member( 6,  "kristina", Level.STANDARD ) );
+        this.addMember( new Member( 7,  "kristian", Level.STANDARD ) );
+        this.addMember( new Member( 8,  "anders", Level.PREMIUM ) );
+        this.addMember( new Member( 9,  "lovisa", Level.PREMIUM ) );
+        this.addMember( new Member( 10, "august", Level.PREMIUM ) );
     }
 
     public void loadRentalsFromDatabase( Inventory inventory ) {

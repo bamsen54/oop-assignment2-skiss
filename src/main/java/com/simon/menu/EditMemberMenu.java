@@ -3,13 +3,14 @@ package com.simon.menu;
 import static java.lang.IO.*;
 
 import com.simon.Level;
-import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
+import com.simon.policy.PremiumPolicy;
+import com.simon.service.IncomeService;
 import com.simon.service.MembershipService;
 
 public class EditMemberMenu {
 
-    public static void editMember(MembershipService membershipService) {
+    public static void editMember(MembershipService membershipService, IncomeService incomeService) {
 
         final Member member;
         final String newName;
@@ -33,9 +34,14 @@ public class EditMemberMenu {
             print( "ny medlemsnivå (student, standard eller premium): " );
             newLevel = Level.valueOf( readln().toUpperCase() );
 
+            if( newLevel == Level.PREMIUM && member.getLevel() != Level.PREMIUM )
+                incomeService.addEntryFees( new PremiumPolicy().getEntryFee() );
+
             member.setName( newName );
             member.setLevel( newLevel );
             println( "ny medlems-information: " + member + "\n" );
+
+
         }
 
         catch ( NullPointerException e ) {

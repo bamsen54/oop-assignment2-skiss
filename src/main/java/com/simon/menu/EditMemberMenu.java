@@ -56,6 +56,6 @@ public class EditMemberMenu {
             println( "medlemsnivå kan endast vara student, standard eller premium\n" );
         }
 
-        catch ( RuntimeException e ) {}
+        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
     }
 }

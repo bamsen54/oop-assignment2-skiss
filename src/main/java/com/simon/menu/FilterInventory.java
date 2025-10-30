@@ -61,7 +61,7 @@ public class FilterInventory {
             println( "alla invärden ska vara icke negativa heltal\n" );
         }
 
-        catch (RuntimeException e)  {}
+        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
 
         println("");

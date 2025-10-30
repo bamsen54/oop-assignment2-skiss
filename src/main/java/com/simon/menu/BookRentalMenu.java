@@ -69,6 +69,7 @@ public class BookRentalMenu {
             println( e.getMessage() + "\n" );
         }
 
-        catch ( RuntimeException e ) {}
+        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
+
     }
 }

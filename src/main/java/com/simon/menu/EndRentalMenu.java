@@ -62,7 +62,7 @@ public class EndRentalMenu {
             println( "finns ingen sådan medlem\n" );
         }
 
-        catch ( RuntimeException e ) {}
+        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
         println( "" );
     }

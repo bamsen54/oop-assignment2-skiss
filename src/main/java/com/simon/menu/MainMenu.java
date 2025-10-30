@@ -5,7 +5,7 @@ import static java.lang.IO.*;
 public class MainMenu {
 
     public static void display() {
-        println( "1.  Lägg til ny medlem" );
+        println( "1.  Lägg till ny medlem" );
         println( "2.  Redigera befintlig medlem" );
         println( "3.  Sök medlemmar " );
         println( "4.  Boka hyrning" );
@@ -31,7 +31,7 @@ public class MainMenu {
             println("det du skrev in är inte ett heltal\n");
         }
 
-        catch ( RuntimeException e ) {}
+        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
         if( userChoice != null ) {
             if (userChoice < 1 || userChoice > 10)

@@ -41,11 +41,10 @@ public class AddNewMemberMenu {
             return;
         }
 
-        catch ( RuntimeException e) {}
+        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
         final boolean legalAndAvailableID = id >= 0 && !membershipService.getMemberRegistry().hasMemberId( id );
         final boolean legalName           = !name.isEmpty();
-        //final boolean legalLevel         = level != null;
 
         if( id < 0 )
             println( "id kan inte vara negativt" );
@@ -59,13 +58,6 @@ public class AddNewMemberMenu {
         if( legalAndAvailableID && legalName ) {
             member = new Member( id, name, level );
             membershipService.addNewMember( member, incomeService );
-
-            switch ( level ) {
-
-                case Level.PREMIUM -> incomeService.addEntryFees( 100 );
-                case null -> {}
-                default -> incomeService.addEntryFees( 0 );
-            }
 
             println( "ny medlem: " + member );
         }

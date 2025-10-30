@@ -15,6 +15,12 @@ public class PrintHistoryMenu {
 
         try {
             id = Integer.parseInt(readln());
+
+            if( id < 0 ) {
+                println( "id:t måste vara ett icke-negativt heltal\n" );
+                return;
+            }
+
             final Member member = membershipService.getMemberRegistry().getMember(id);
 
             if( member != null ) {
@@ -25,14 +31,14 @@ public class PrintHistoryMenu {
             }
 
             else
-                println( "medlem med det id:et finns inte" + "\n" );
+                println( "medlem med det id:et finns inte" );
         }
 
         catch( NumberFormatException e ) {
-            println( "id måste vara icke-negativt heltal\n" );
+            println( "id måste vara icke-negativt heltal" );
         }
 
-        catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
+        catch ( RuntimeException e) { println( "någonting gick fel" ); }
 
         println("");
     }

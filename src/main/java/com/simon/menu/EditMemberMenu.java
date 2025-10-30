@@ -27,9 +27,14 @@ public class EditMemberMenu {
             if( member == null )
                 throw new NullPointerException( "" );
 
-            println( "medlemmens-information är just nu: " + member );
+            print( "medlemmens-information är just nu: " + member );
             print( "nytt namn: " );
             newName = readln();
+
+            if( newName.isEmpty() ) {
+                println( "namn måste ha minst ett tecken\n" );
+                return;
+            }
 
             print( "ny medlemsnivå (student, standard eller premium): " );
             newLevel = Level.valueOf( readln().toUpperCase() );
@@ -40,8 +45,6 @@ public class EditMemberMenu {
             member.setName( newName );
             member.setLevel( newLevel );
             println( "ny medlems-information: " + member + "\n" );
-
-
         }
 
         catch ( NullPointerException e ) {

@@ -17,14 +17,13 @@ public class MainMenu {
         println( "10. Avsluta" );
     }
 
-    // user chooses in the main menu and
     public static Integer getUserChoice() {
 
         Integer userChoice = null;
 
         try {
             print( "Välj: " );
-            userChoice = Integer.parseInt( IO.readln( ) );
+            userChoice = Integer.parseInt( readln( ) );
         }
 
         catch ( NumberFormatException e ) {
@@ -34,8 +33,8 @@ public class MainMenu {
         catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
         if( userChoice != null ) {
-            if (userChoice < 1 || userChoice > 10)
-                println("det du skrev var inte mellan 1 och 11\n");
+            if ( userChoice < 1 || userChoice > 10 )
+                println( "det du skrev var inte mellan 1 och 11\n" );
         }
 
         return userChoice;

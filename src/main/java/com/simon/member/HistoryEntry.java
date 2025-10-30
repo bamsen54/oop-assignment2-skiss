@@ -3,6 +3,7 @@ package com.simon.member;
 import java.time.LocalDateTime;
 
 import com.simon.item.Item;
+import com.simon.time.LocalDateTimeToString;
 
 public class HistoryEntry {
 
@@ -45,9 +46,10 @@ public class HistoryEntry {
 
     @Override
     public String toString() {
-
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append( this.item ).append( " hyrning: " ).append( this.rentalDate ).append( " återlämning: " ).append( this.returnDate );
+        stringBuilder.append( this.item );
+        stringBuilder.append( " hyrning: " ).append( LocalDateTimeToString.toString( this.rentalDate ) ).append( " retur: " ).
+        append( LocalDateTimeToString.toString( this.returnDate ) );
         return stringBuilder.toString();
     }
 }

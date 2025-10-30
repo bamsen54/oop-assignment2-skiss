@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.simon.item.Item;
 import com.simon.member.Member;
+import com.simon.time.LocalDateTimeToString;
 
 public class Rental {
 
@@ -55,8 +56,9 @@ public class Rental {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append( this.member.getName() ).append( " hyr " ).
-                      append( this.item ).append( " i " ).append( this.duration ).append( " dagar " ).
-                      append( "tid: ").append( this.timeOfRental );
+                      append( this.item ).append( " i " ).append( this.duration ).append( " dagar " );
+
+        stringBuilder.append( "tid: " ).append( LocalDateTimeToString.toString( this.timeOfRental ) );
 
         return stringBuilder.toString();
     }

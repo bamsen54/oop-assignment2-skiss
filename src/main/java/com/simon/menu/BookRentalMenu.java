@@ -14,15 +14,13 @@ public class BookRentalMenu {
 
     public static void bookRental(RentalService rentalService, MembershipService membershipService, Inventory inventory, IncomeService incomeService) {
 
-        Integer memberID    = null;
-        Integer inventoryID = null;
-        Integer days        = null;
+        int memberID;
+        int inventoryID;
 
         final Member member;
         final InventoryEntry inventoryEntry;
 
         try {
-
             println( "\nBOKA HYRNING");
             println( "skriv in id för medlem och id för det du ska hyra och hur länge (dygn): ");
             print( "medlem id: " );
@@ -40,22 +38,20 @@ public class BookRentalMenu {
             if( inventoryEntry == null )
                 throw new NullPointerException( "det finns ingenting i förådet med det id:t" );
 
-            println( inventoryEntry );
-
-            print( "antal dagar: " );
-            days        = Integer.parseInt( readln() );
-
-
-            if( memberID < 0 || inventoryID < 0 || days < 0 ) {
-                println( "endast icke-negativa heltal" );
-                return;
-            }
-
             if( inventoryEntry.getQuantityInStore() < 1 ) {
                 println( "alla av den artikeln är uthyrda\n" );
                 return;
             }
 
+            println( inventoryEntry );
+
+            print( "antal dagar: " );
+            int days = Integer.parseInt(readln());
+
+            if( memberID < 0 || inventoryID < 0 || days < 0 ) {
+                println( "endast icke-negativa heltal" );
+                return;
+            }
             Rental rental = new Rental( member, inventoryEntry.getItem(), String.valueOf( days ) );
             println( rental + "\n" );
             rentalService.handleRental( inventoryEntry, member, rental, incomeService );
@@ -70,6 +66,5 @@ public class BookRentalMenu {
         }
 
         catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
-
     }
 }

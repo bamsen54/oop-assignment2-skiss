@@ -23,11 +23,11 @@ public class SearchMemberMenu {
             choice = Integer.parseInt( readln() );
 
             switch (choice) {
-                case 1 -> searchById( membershipService.getMemberRegistry() );
-                case 2 -> searchByRegexName( membershipService.getMemberRegistry(), "find" );
-                case 3 -> searchByRegexName( membershipService.getMemberRegistry(), "match" );
-                case 4 -> searchByLevel( membershipService.getMemberRegistry() );
-                default -> { }
+                case 1  -> searchById( membershipService.getMemberRegistry() );
+                case 2  -> searchByRegexName( membershipService.getMemberRegistry(), "find" );
+                case 3  -> searchByRegexName( membershipService.getMemberRegistry(), "match" );
+                case 4  -> searchByLevel( membershipService.getMemberRegistry() );
+                default -> println( "Inte en siffra i menyn\n" );
             }
         }
 

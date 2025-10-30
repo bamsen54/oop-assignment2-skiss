@@ -49,20 +49,18 @@ public class FilterInventory {
             if( inventoryEntry != null )
                 println( inventoryEntry );
             else
-                println( "det finns ingenting i lagret med den titeln" );
+                println( "det finns ingen vara i lagret med det id:t" );
         }
 
         catch( NullPointerException e ) {
-
-            println( "ingen vara i lagret med det id:t" );
+            println( "def finns ingen vara i lagret med det id:t" );
         }
 
         catch ( NumberFormatException e) {
-            println( "alla invärden ska vara icke negativa heltal\n" );
+            println( "alla invärden ska vara icke negativa heltal" );
         }
 
         catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
-
 
         println("");
     }
@@ -95,11 +93,17 @@ public class FilterInventory {
         print( "skriv in kategori du vill söka på: " );
         String category = readln();
 
-        for( Integer key: inventory.getInventory().keySet() ) {
+        boolean categoryExists = false;
+        for( int key: inventory.getInventory().keySet() ) {
 
-            if( inventory.getInventory().get( key ).getItem().getCategory().equals( category ) )
-                println(  inventory.getInventory().get( key ) );
+            if( inventory.getInventory().get( key ).getItem().getCategory().equals( category ) ) {
+                println(inventory.getInventory().get(key));
+                categoryExists = true;
+            }
         }
+
+        if( !categoryExists )
+            println( "det finns ingen vara med den kategorin\n" );
 
         println("");
     }

@@ -69,7 +69,7 @@ public class IncomeService {
         println( "intäkter: " );
         println( "inträdesavgifter: " + this.incomeEntryFees );
         println( "hyrningsavgifter: " + this.incomeRentalFees );
-        println( "total inkomst: " + ( this.incomeEntryFees + this.incomeRentalFees ) );
+        println( "total inkomst   : " + ( this.incomeEntryFees + this.incomeRentalFees ) );
         println("");
     }
 }

@@ -22,12 +22,12 @@ public class EditMemberMenu {
             print("id: ");
             final int id = Integer.parseInt(readln());
 
-            member = membershipService.getMemberRegistry().getMember( id );
+            member = membershipService.getMemberWithID( id );
 
             if( member == null )
                 throw new NullPointerException( "" );
 
-            print( "medlemmens-information är just nu: " + member );
+            print( "medlemmens information är just nu: " + member );
             print( "nytt namn: " );
             newName = readln();
 

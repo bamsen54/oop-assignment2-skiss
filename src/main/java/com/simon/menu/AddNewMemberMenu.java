@@ -11,8 +11,8 @@ public class AddNewMemberMenu {
 
     public static void addNewMember(MembershipService membershipService, IncomeService incomeService) {
 
-        int id = - 1;
-        String name = "";
+        Integer id   = null;
+        String name  = null;
         Level  level = null;
 
         try {
@@ -20,15 +20,13 @@ public class AddNewMemberMenu {
 
             print("id: ");
             id = Integer.parseInt( readln() );
-
-            if( membershipService.getMemberRegistry().hasMemberId( id ) ) {
+            if( membershipService.hasMemberWithID( id ) ) {
                 println( "medlem med det id:t finns redan\n" );
                 return;
             }
 
             print("namn: ");
             name = readln();
-
             if( name.isEmpty() ) {
                 println( "namn måste ha minst ett tecken\n" );
                 return;
@@ -38,13 +36,11 @@ public class AddNewMemberMenu {
             level = Level.valueOf( readln().toUpperCase() );
         }
 
-        // handles parseInt error
         catch( NumberFormatException e ) {
             println( "id kan endast vara positiva heltal\n" );
             return;
         }
 
-        // handles Level.valueOf error
         catch ( IllegalArgumentException e ) {
             println( "medlemsnivå kan endast vara student, standard eller premium\n" );
             return;
@@ -52,10 +48,9 @@ public class AddNewMemberMenu {
 
         catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
-        // not reached if something went wrong
+
         Member newMember = new Member( id, name, level );
         membershipService.addNewMember( newMember, incomeService );
-
         println( newMember );
     }
 }

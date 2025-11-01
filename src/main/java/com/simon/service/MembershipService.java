@@ -23,16 +23,17 @@ public class MembershipService {
         this.memberRegistry = memberRegistry;
     }
 
+    public boolean hasMemberWithID( int id ) {
+        return this.memberRegistry.hasMemberId( id );
+    }
+
+    public Member getMemberWithID( int id ) {
+        return this.memberRegistry.getMember( id );
+    }
+
     public void addNewMember(Member member, IncomeService incomeService) {
 
         this.memberRegistry.addMember( member );
-
-//        switch ( member.getLevel() ) {
-//            case Level.STUDENT  -> incomeService.addEntryFees( new StudentPolicy().getEntryFee()  );
-//            case Level.STANDARD -> incomeService.addEntryFees( new StandardPolicy().getEntryFee() );
-//            case Level.PREMIUM  -> incomeService.addEntryFees( new PremiumPolicy().getEntryFee()  );
-//        }
-
         incomeService.handleEntryFeePaymen( member );
     }
 }

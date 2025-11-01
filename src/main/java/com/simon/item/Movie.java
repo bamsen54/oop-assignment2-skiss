@@ -15,7 +15,7 @@ public class Movie extends Item {
     }
 
     public String getFormat() {
-        return format;
+        return this.format;
     }
 
     public void setFormat(String format) {
@@ -23,7 +23,7 @@ public class Movie extends Item {
     }
 
     public String getRuntime() {
-        return runtime;
+        return this.runtime;
     }
 
     public void setRuntime(String runtime) {

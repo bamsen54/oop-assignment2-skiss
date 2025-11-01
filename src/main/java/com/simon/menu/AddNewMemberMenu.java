@@ -48,7 +48,6 @@ public class AddNewMemberMenu {
 
         catch ( RuntimeException e) { println( "någonting gick fel\n" ); }
 
-
         Member newMember = new Member( id, name, level );
         membershipService.addNewMember( newMember, incomeService );
         println( newMember );

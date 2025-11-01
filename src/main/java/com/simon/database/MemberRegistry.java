@@ -32,7 +32,7 @@ public class MemberRegistry {
     }
 
     public boolean hasMemberId( int memberId ) {
-        return members.containsKey(memberId);
+        return this.members.containsKey(memberId);
     }
 
     public void addMember(Member member) {
@@ -47,7 +47,7 @@ public class MemberRegistry {
         return this.members.get( id );
     }
 
-    public HashMap<Integer, Member> getMembers() {
-        return (HashMap<Integer, Member>) this.members;
+    public Map<Integer, Member> getMembers() {
+        return this.members;
     }
 }

@@ -37,6 +37,6 @@ public class InventoryEntry {
         stringBuilder.append( this.item.toString() );
         stringBuilder.append( " antal i lager: " ).append( this.quantityInStore );
 
-        return  stringBuilder.toString();
+        return stringBuilder.toString();
     }
 }

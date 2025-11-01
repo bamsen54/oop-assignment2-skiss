@@ -1,7 +1,5 @@
 package com.simon.policy;
 
-import com.simon.Level;
-
 public class StudentPolicy implements PricePolicy {
 
     private final double changeFactor = 0.85;
@@ -9,10 +7,9 @@ public class StudentPolicy implements PricePolicy {
     public StudentPolicy() {
     }
 
-
     @Override
     public double getPrice(int days) {
-        return changeFactor * 25 * days;
+        return this.changeFactor * 25 * days;
     }
 
     @Override

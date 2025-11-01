@@ -18,11 +18,10 @@ public class IncomeService {
     private double incomeRentalFees = 0;
 
     public IncomeService() {
-
     }
 
     public double getIncomeEntryFees() {
-        return incomeEntryFees;
+        return this.incomeEntryFees;
     }
 
     public void setIncomeEntryFees(double incomeEntryFees) {
@@ -30,7 +29,7 @@ public class IncomeService {
     }
 
     public double getIncomeRentalFees() {
-        return incomeRentalFees;
+        return this.incomeRentalFees;
     }
 
     public void setIncomeRentalFees(double incomeRentalFees) {
@@ -49,9 +48,9 @@ public class IncomeService {
         return this.incomeEntryFees + this.incomeRentalFees;
     }
 
-    public void handleEntryFeePaymen( Member member) {
+    public void handleEntryFeePaymen( Member member, Level previousLevel) {
 
-        if( member.getLevel() == Level.PREMIUM )
+        if( member.getLevel() == Level.PREMIUM && previousLevel != Level.PREMIUM )
             this.addEntryFees( premiumPolicy.getEntryFee() );
     }
 

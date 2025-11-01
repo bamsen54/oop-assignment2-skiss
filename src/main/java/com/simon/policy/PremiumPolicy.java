@@ -1,7 +1,5 @@
 package com.simon.policy;
 
-import com.simon.Level;
-
 public class PremiumPolicy implements PricePolicy {
 
     private final double changeRate = 0.75;
@@ -10,10 +8,10 @@ public class PremiumPolicy implements PricePolicy {
     public double getPrice(int days) {
 
         if( days >= 7) {
-            return changeRate * 25 * days - 25 * changeRate;
+            return this.changeRate * 25 * days - 25 * this.changeRate;
         }
 
-        return changeRate * 25 * days;
+        return this.changeRate * 25 * days;
     }
 
     @Override

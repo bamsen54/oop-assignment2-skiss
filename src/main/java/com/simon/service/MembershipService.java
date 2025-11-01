@@ -5,14 +5,12 @@ import com.simon.database.Inventory;
 import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 
-
 public class MembershipService {
 
     MemberRegistry memberRegistry = new MemberRegistry();
 
     public MembershipService(Inventory inventory) {
         memberRegistry.loadFromDatabase();
-        //memberRegistry.loadRentalsFromDatabase( inventory );
     }
 
     public MemberRegistry getMemberRegistry() {
@@ -34,6 +32,6 @@ public class MembershipService {
     public void addNewMember(Member member, IncomeService incomeService) {
 
         this.memberRegistry.addMember( member );
-        incomeService.handleEntryFeePaymen( member );
+        incomeService.handleEntryFeePaymen( member, null );
     }
 }

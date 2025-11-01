@@ -3,7 +3,6 @@ package com.simon.menu;
 import static java.lang.IO.*;
 
 import com.simon.Level;
-import com.simon.database.MemberRegistry;
 import com.simon.member.Member;
 import com.simon.regex.Regex;
 import com.simon.service.MembershipService;
@@ -23,10 +22,10 @@ public class SearchMemberMenu {
             choice = Integer.parseInt( readln() );
 
             switch (choice) {
-                case 1  -> searchById( membershipService.getMemberRegistry() );
-                case 2  -> searchByRegexName( membershipService.getMemberRegistry(), "find" );
-                case 3  -> searchByRegexName( membershipService.getMemberRegistry(), "match" );
-                case 4  -> searchByLevel( membershipService.getMemberRegistry() );
+                case 1  -> searchById( membershipService );
+                case 2  -> searchByRegexName( membershipService, "find" );
+                case 3  -> searchByRegexName( membershipService, "match" );
+                case 4  -> searchByLevel( membershipService );
                 default -> println( "Inte en siffra i menyn\n" );
             }
         }
@@ -36,16 +35,14 @@ public class SearchMemberMenu {
         }
     }
 
-    public static void searchById(MemberRegistry memberRegistry) {
+    public static void searchById(MembershipService membershipService) {
 
         final int id;
         print( "välj id att söka på: " );
 
         try {
             id = Integer.parseInt(readln());
-
-
-            final Member member = memberRegistry.getMember(id);
+            final Member member = membershipService.getMemberWithID( id );
 
             if( member != null )
                 print( "medlem som har id = " + id + " är " + member + "\n" );
@@ -58,43 +55,41 @@ public class SearchMemberMenu {
             println( "id måste vara icke-negativt heltal\n" );
         }
 
-        catch (RuntimeException e)  {}
+        catch (RuntimeException e)  { println( "någonting gick fel\n" ); }
     }
 
-    public static void  searchByRegexName(MemberRegistry memberRegistry, String regexType) {
-
-        Regex regex = new Regex();
+    public static void  searchByRegexName(MembershipService membershipService, String regexType) {
 
         try {
             String pattern;
             print("Skriv in mönster: ");
             pattern = readln();
 
-            for ( Integer key : memberRegistry.getMembers().keySet() ) {
-                final Member member = memberRegistry.getMembers().get( key );
+            for ( int key : membershipService.getMemberRegistry().getMembers().keySet() ) {
+                final Member member = membershipService.getMemberRegistry().getMembers().get( key );
 
                 switch( regexType ) {
-                    case "find"  ->  { if ( regex.isFound( member.getName(), pattern) ) print( member ); }
-                    case "match" ->  { if ( regex.isMatch( member.getName(), pattern) ) print( member ); }
+                    case "find"  ->  { if ( Regex.isFound( member.getName(), pattern) ) print( member ); }
+                    case "match" ->  { if ( Regex.isMatch( member.getName(), pattern) ) print( member ); }
                 }
             }
         }
 
-        catch (RuntimeException e)  {}
+        catch (RuntimeException e)  { println( "någonting gick fel\n" ); }
 
         println("");
     }
 
-    public static void searchByLevel(MemberRegistry memberRegistry) {
+    public static void searchByLevel(MembershipService membershipService) {
 
         try {
             Level level;
             print("skriv in medlemsnivå (student, standard eller premium): ");
             level = Level.valueOf(readln().toUpperCase());
 
-            for( Integer key : memberRegistry.getMembers().keySet() ) {
-                if( memberRegistry.getMembers().get( key ).getLevel().equals( level ) )
-                    print( memberRegistry.getMembers().get( key ) ) ;
+            for( int key : membershipService.getMemberRegistry().getMembers().keySet() ) {
+                if( membershipService.getMemberRegistry().getMembers().get( key ).getLevel().equals( level ) )
+                    print( membershipService.getMemberRegistry().getMembers().get( key ) ) ;
             }
         }
 
@@ -102,7 +97,7 @@ public class SearchMemberMenu {
             println( "finns ingen sådan medlemsnivå\n" );
         }
 
-        catch ( RuntimeException e )  {}
+        catch (RuntimeException e)  { println( "någonting gick fel\n" ); }
 
         println("");
     }

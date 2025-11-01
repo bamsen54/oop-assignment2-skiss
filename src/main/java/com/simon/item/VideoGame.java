@@ -15,7 +15,7 @@ public class VideoGame extends Item{
     }
 
     public String getPlatform() {
-        return platform;
+        return this.platform;
     }
 
     public void setPlatform(String platform) {
@@ -23,7 +23,7 @@ public class VideoGame extends Item{
     }
 
     public String getPEGIRating() {
-        return PEGIRating;
+        return this.PEGIRating;
     }
 
     public void setPEGIRating(String PEGIRating) {

@@ -21,7 +21,7 @@ public class PrintHistoryMenu {
                 return;
             }
 
-            final Member member = membershipService.getMemberRegistry().getMember(id);
+            final Member member = membershipService.getMemberWithID( id );
 
             if( member != null ) {
 

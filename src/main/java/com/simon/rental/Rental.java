@@ -20,11 +20,11 @@ public class Rental {
         this.member = member;
         this.item = item;
         this.duration = duration;
-        timeOfRental = LocalDateTime.now();
+        this.timeOfRental = LocalDateTime.now();
     }
 
     public Member getMember() {
-        return member;
+        return this.member;
     }
 
     public void setMember(Member member) {
@@ -32,7 +32,7 @@ public class Rental {
     }
 
     public Item getItem() {
-        return item;
+        return this.item;
     }
 
     public void setItem(Item item) {
@@ -40,7 +40,7 @@ public class Rental {
     }
 
     public String getDuration() {
-        return duration;
+        return this.duration;
     }
 
     public void setDuration(String duration) {
@@ -48,7 +48,7 @@ public class Rental {
     }
 
     public LocalDateTime getTimeOfRental() {
-        return timeOfRental;
+        return this.timeOfRental;
     }
 
     public String toString() {

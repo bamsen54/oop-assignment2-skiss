@@ -4,7 +4,6 @@ import static java.lang.IO.*;
 
 import com.simon.Level;
 import com.simon.member.Member;
-import com.simon.policy.PremiumPolicy;
 import com.simon.service.IncomeService;
 import com.simon.service.MembershipService;
 
@@ -39,12 +38,15 @@ public class EditMemberMenu {
             print( "ny medlemsnivå (student, standard eller premium): " );
             newLevel = Level.valueOf( readln().toUpperCase() );
 
+            Level previousLevel = member.getLevel();
+
             member.setName( newName );
             member.setLevel( newLevel );
-            println( "ny medlems-information: " + member + "\n" );
+            println( "ny medlems-information: " + member );
 
-            incomeService.handleEntryFeePaymen( member ); // if member goes from level:
-                                                          // student, standard -> premium, they have to pay the entry fee
+            incomeService.handleEntryFeePaymen( member, previousLevel );
+
+
         }
 
         catch ( NullPointerException e ) {

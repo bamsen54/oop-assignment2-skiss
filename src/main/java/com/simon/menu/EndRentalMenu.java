@@ -24,7 +24,7 @@ public class EndRentalMenu {
             println( "skriv in id för medlem och id för det du lämna tillbaka: ");
             print( "medlem id: " );
             memberID = Integer.parseInt( readln() );
-            member   = membershipService.getMemberRegistry().getMember( memberID );
+            member   = membershipService.getMemberWithID( memberID );
 
             if( member == null )
                 throw new NullPointerException( "det finns ingen medlem med det id:t" );

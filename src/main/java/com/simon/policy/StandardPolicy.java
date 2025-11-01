@@ -6,12 +6,6 @@ public class StandardPolicy implements PricePolicy {
 
     public StandardPolicy() {
     }
-
-    @Override
-    public String getPolicyName() {
-        return "standard";
-    }
-
     @Override
     public double applyDiscount(double amount) {
         return changeRate * amount;

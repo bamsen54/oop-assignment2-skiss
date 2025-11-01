@@ -75,7 +75,6 @@ public class FilterInventory {
             for ( Integer key : inventory.getInventory().keySet() ) {
 
                 final InventoryEntry inventoryEntry = inventory.getInventory().get( key );
-
                 switch( regexType ) {
                     case "find"  ->  { if ( Regex.isFound( inventoryEntry.getItem().getTitle(), pattern) ) println( inventoryEntry ); }
                     case "match" ->  { if ( Regex.isMatch( inventoryEntry.getItem().getTitle(), pattern) ) println( inventoryEntry ); }

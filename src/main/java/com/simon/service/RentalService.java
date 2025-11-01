@@ -13,15 +13,14 @@ import com.simon.Level;
 
 public class RentalService {
 
+
+
     public void handleRental(InventoryEntry inventoryEntry, Member member, Rental rental, IncomeService incomeService ) {
         member.addToCurrentRentals( rental );
         inventoryEntry.setQuantityInStore( inventoryEntry.getQuantityInStore() - 1 );
 
-            switch ( member.getLevel() ) {
-                case Level.STUDENT  -> incomeService.addRentaleFees(  new StudentPolicy().applyDiscount(25   * Integer.parseInt( rental.getDuration() ) ) );
-                case Level.STANDARD -> incomeService.addRentaleFees(  new StandardPolicy().applyDiscount(25  * Integer.parseInt( rental.getDuration() ) ) );
-                case Level.PREMIUM  -> incomeService.addRentaleFees(  new PremiumPolicy().applyDiscount(25  * Integer.parseInt( rental.getDuration() ) ) );
-        }
+
+
     }
 
     public void handleEndRental( InventoryEntry inventoryEntry, Member member, int index ) {

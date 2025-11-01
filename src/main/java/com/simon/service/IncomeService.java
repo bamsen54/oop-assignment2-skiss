@@ -1,8 +1,18 @@
 package com.simon.service;
 
+import com.simon.Level;
+import com.simon.member.Member;
+import com.simon.policy.PremiumPolicy;
+import com.simon.policy.StandardPolicy;
+import com.simon.policy.StudentPolicy;
+
 import static java.lang.IO.println;
 
 public class IncomeService {
+
+    StudentPolicy studentPolicy   = new StudentPolicy();
+    StandardPolicy standardPolicy = new StandardPolicy();
+    PremiumPolicy premiumPolicy   = new PremiumPolicy();
 
     private double incomeEntryFees = 0;
     private double incomeRentalFees = 0;
@@ -37,6 +47,21 @@ public class IncomeService {
 
     public double getTotalIncome() {
         return this.incomeEntryFees + this.incomeRentalFees;
+    }
+
+    public void handleEntryFeePaymen( Member member) {
+
+        if( member.getLevel() == Level.PREMIUM )
+            this.addEntryFees( premiumPolicy.getEntryFee() );
+    }
+
+    public void handleRentalFeePayment( Member member, int days) {
+
+        switch ( member.getLevel() ) {
+            case Level.STUDENT  -> this.addRentaleFees( studentPolicy.getPrice( days ) );
+            case Level.STANDARD -> this.addRentaleFees( standardPolicy.getPrice( days ) );
+            case Level.PREMIUM  -> this.addRentaleFees( premiumPolicy.getPrice( days ) );
+        }
     }
 
     public void printIncomeSummary() {

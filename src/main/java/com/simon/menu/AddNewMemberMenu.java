@@ -55,5 +55,7 @@ public class AddNewMemberMenu {
         // not reached if something went wrong
         Member newMember = new Member( id, name, level );
         membershipService.addNewMember( newMember, incomeService );
+
+        println( newMember );
     }
 }

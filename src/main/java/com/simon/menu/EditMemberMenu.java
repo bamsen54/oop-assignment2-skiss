@@ -39,12 +39,12 @@ public class EditMemberMenu {
             print( "ny medlemsnivå (student, standard eller premium): " );
             newLevel = Level.valueOf( readln().toUpperCase() );
 
-            if( newLevel == Level.PREMIUM && member.getLevel() != Level.PREMIUM )
-                incomeService.addEntryFees( new PremiumPolicy().getEntryFee() );
-
             member.setName( newName );
             member.setLevel( newLevel );
             println( "ny medlems-information: " + member + "\n" );
+
+            incomeService.handleEntryFeePaymen( member ); // if member goes from level:
+                                                          // student, standard -> premium, they have to pay the entry fee
         }
 
         catch ( NullPointerException e ) {

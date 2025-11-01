@@ -52,9 +52,12 @@ public class BookRentalMenu {
                 println( "endast icke-negativa heltal" );
                 return;
             }
+            
             Rental rental = new Rental( member, inventoryEntry.getItem(), String.valueOf( days ) );
             println( rental + "\n" );
             rentalService.handleRental( inventoryEntry, member, rental, incomeService );
+
+            incomeService.handleRentalFeePayment( member, days );
         }
 
         catch ( NumberFormatException e ) {
